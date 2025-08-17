@@ -11,7 +11,7 @@ from sklearn.preprocessing import StandardScaler, LabelEncoder, OneHotEncoder
 model = tf.keras.models.load_model('model.h5')
 
 #Loding encoder and scaler
-with open('Label_encoder_gender.pkl', 'rb') as file:
+with open('label_encoder_gender.pkl', 'rb') as file:
     label_encoder_gender = pickle.load(file)
 
 with open('onehot_encoder_geo.pkl', 'rb') as file:
@@ -69,5 +69,6 @@ if prediction_prob > 0.5:
     st.error(f"The customer is likely to churn. (Prediction Probability: {prediction_prob:.2f})")
 else:
     st.success(f"The customer is not likely to churn. (Prediction Probability: {prediction_prob:.2f})")
+
 
 st.info("The prediction is based on the input features and the trained model.")
